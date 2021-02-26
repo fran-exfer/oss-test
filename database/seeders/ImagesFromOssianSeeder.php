@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Seeder;
+use App\Models\Image;
 
 class ImagesFromOssianSeeder extends Seeder
 {
@@ -15,9 +16,16 @@ class ImagesFromOssianSeeder extends Seeder
      */
     public function run()
     {
-        // Fetch the data from the API
         $response = Http::get('http://internal.ossian.tech/api/Sample');
         $imagesFromApi = $response->json()['result'];
-        dd($imagesFromApi);
+
+        foreach ($imagesFromApi as $image) {
+            Image::create([
+                'title' => $image['title'],
+                'description' => $image['description'],
+                'category' => $image['category'],
+                'url' => $image['url']
+            ]);
+        }
     }
 }

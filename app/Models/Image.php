@@ -17,4 +17,12 @@ class Image extends Model
         'category',
         'url'
     ];
+    
+    /**
+     * Indicates if the model should be timestamped. In this case, we don't
+     * really need a timestamp.
+     *
+     * @var bool
+     */
+    public $timestamps = false; 
 }
