@@ -15,7 +15,7 @@
 
 @section ('content')
     <div class="block">
-        <a href="#" class="button is-dark">
+        <a href="{{ route('create') }}" class="button is-dark">
             <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
             <span>Add new image</span>
         </a>
