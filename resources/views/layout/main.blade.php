@@ -7,12 +7,25 @@
     <title>Oss Gallery</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
-<body>
-    <header>
-    </header>
+<body class="has-background-grey-lighter">
+    <div class="container">
+        <header class="has-background-dark p-5">
+            <h1 class="title is-1 has-text-light">Oss Gallery</h1>
+        </header>
 
-    <main>
-        @yield ('content')
-    </main>
+        <main class="has-background-light p-5">
+
+            <div class="block">
+                @yield ('navigation')
+            </div>
+
+            <div class="block">
+                @yield ('content')
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://kit.fontawesome.com/afb9d39c37.js" crossorigin="anonymous"></script>
 </body>
 </html>
