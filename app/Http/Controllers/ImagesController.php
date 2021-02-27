@@ -32,7 +32,7 @@ class ImagesController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function store(Request $request)
+    public function store()
     {
         Image::create($this->validateInputs());
         return redirect(route('index'))->withSuccess('Image created successfully');

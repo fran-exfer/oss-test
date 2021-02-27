@@ -7,20 +7,28 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
+/**
+ * These are the routes from my application. I've tried to follow a modified
+ * 7 RESTful routes pattern. Because the app is only about images, I've taken
+ * the root of the website as the root route for the resource 'images'. I've
+ * not implemented a 'show' route in this case because all the image info is
+ * suited to be shown on index. I've also added an additional one for showing
+ * a delete confirmation dialog without JS.
+ */
+
+// Image list and UI forms
 Route::get('/', [ImagesController::class, 'index'])->name('index');
 Route::get('/create', [ImagesController::class, 'create'])->name('create');
 Route::get('/{image}/edit', [ImagesController::class, 'edit'])->name('edit');
 Route::get('/{image}/delete', [ImagesController::class, 'delete'])->name('deleteconfirm');
 
+// Store a new image in the database
 Route::post('/', [ImagesController::class, 'store'])->name('store');
 
+// Update an image in the database
 Route::put('/{image}', [ImagesController::class, 'update'])->name('update');
 
+// Delete an image in the database
 Route::delete('/{image}', [ImagesController::class, 'destroy'])->name('destroy');
