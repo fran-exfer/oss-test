@@ -69,7 +69,7 @@ class ImagesController extends Controller
     public function update(Image $image)
     {
         $image->update($this->validateInputs());
-        return redirect(route('index'))->withSuccess('Image data updated successfully');
+        return redirect(route('show', $image))->withSuccess('Image data updated successfully');
     }
 
     /**

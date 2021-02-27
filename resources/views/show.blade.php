@@ -11,8 +11,8 @@
             </li>
             <li class="is-active">
                 <a href="#">
-                    <span class="icon is-small"><i class="fas fa-list" aria-hidden="true"></i></span>
-                    <span>Image details</span>
+                    <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                    <span>{{ $image->title }}</span>
                 </a>
             </li>
         </ul>

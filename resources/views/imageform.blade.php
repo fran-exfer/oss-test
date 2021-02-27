@@ -9,17 +9,27 @@
                     <span>Image list</span>
                 </a>
             </li>
-            <li class="is-active">
-                <a href="#">
-                    @if (Route::currentRouteName() === 'create')
+            @if (Route::currentRouteName() === 'edit')
+                <li>
+                    <a href="{{ route('show', $image) }}">
+                        <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
+                        <span>{{ $image->title }}</span>
+                    </a>
+                </li>
+                <li class="is-active">
+                    <a href="#">
+                            <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
+                            <span>Edit image</span>
+                    </a>
+                </li>
+            @else
+                <li class="is-active">
+                    <a href="#">
                         <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
                         <span>Create new image</span>
-                    @else
-                        <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
-                        <span>Edit image</span>
-                    @endif
-                </a>
-            </li>
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
 @endsection

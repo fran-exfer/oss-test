@@ -30,9 +30,9 @@
         </a>
     </div>    
 
-    <div class="columns is-mobile is-multiline">
+    <div class="columns is-mobile is-multiline is-centered">
         @foreach ($images as $image)
-            <div class="column is-half-mobile is-one-third-tablet is-one-quarter-widescreen">
+            <div class="column is-full-mobile is-half-tablet is-one-quarter-widescreen">
                 <a href="{{ route('show', $image) }}">
                     <article class="card card-gallery">
                         <div class="card-header is-flex is-justify-content-center is-align-items-center p-2 has-background-dark">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <h1 class="title is-4 is-flex is-justify-content-space-between">
+                            <h1 class="title is-5 is-flex is-justify-content-space-between">
                                 {{ $image->title }}
                                 <span class="tag is-info">{{ $image->category }}</span>
                             </h1>

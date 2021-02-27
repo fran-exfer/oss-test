@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Route;
  * These are the routes from my application. I've tried to follow a modified
  * 7 RESTful routes pattern. Because the app is only about images, I've taken
  * the root of the website as the root route for the resource 'images'. I've
- * not implemented a 'show' route in this case because all the image info is
- * suited to be shown on index. I've also added an additional one for showing
- * a delete confirmation dialog without JS.
+ * also added an additional one for showing a delete confirmation dialog
+ * without JS.
  */
 
-// Image list and UI forms
+// Image list, image details and UI forms
 Route::get('/', [ImagesController::class, 'index'])->name('index');
 Route::get('/create', [ImagesController::class, 'create'])->name('create');
 Route::get('/{image}', [ImagesController::class, 'show'])->name('show');
