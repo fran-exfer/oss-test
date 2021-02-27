@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="has-background-grey-lighter">
-    <div class="container">
+    <div class="container is-flex is-flex-direction-column">
         <header class="has-background-dark p-5">
             <h1 class="title is-1 has-text-light">Oss Gallery</h1>
         </header>
 
-        <main class="has-background-light p-5">
+        <main class="has-background-light p-5 is-flex-grow-1">
 
             <div class="block">
                 @yield ('navigation')

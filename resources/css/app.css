@@ -1,5 +1,13 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css";
 
+body, .container {
+  min-height: 100vh;
+}
+
+main {
+  height: auto;
+}
+
 .image-gallery {
   max-height: 250px;
   margin: 0 auto;
