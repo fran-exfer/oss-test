@@ -35,7 +35,7 @@ class ImagesController extends Controller
     public function store(Request $request)
     {
         Image::create($this->validateInputs());
-        return redirect(route('index'));
+        return redirect(route('index'))->withSuccess('Image created successfully');
     }
 
     /**

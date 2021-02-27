@@ -14,12 +14,21 @@
 @endsection
 
 @section ('content')
+
+    @if (session('success'))
+        <article class="message is-success has-shadow">
+            <div class="message-body">
+                <p>{{ session('success') }}</p>
+            </div>
+        </article>
+    @endif
+
     <div class="block">
         <a href="{{ route('create') }}" class="button is-dark">
             <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
             <span>Add new image</span>
         </a>
-    </div>
+    </div>    
 
     @foreach ($images as $image)
         <article class="box">
