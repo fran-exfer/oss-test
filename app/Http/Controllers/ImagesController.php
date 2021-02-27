@@ -28,6 +28,17 @@ class ImagesController extends Controller
     }
 
     /**
+     * Displays image details.
+     *
+     * @param  \App\Models\Image  $image
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function show(Image $image)
+    {
+        return view('show', ['image' => $image]);
+    }
+
+    /**
      * Persist the new image data in the database.
      *
      * @return \Illuminate\Contracts\View\View

@@ -31,59 +31,26 @@
     </div>    
 
     <div class="columns is-mobile is-multiline">
-    @foreach ($images as $image)
-        <div class="column is-half-mobile is-one-third-tablet is-one-quarter-widescreen">
-            <a href="#">
-                <article class="card card-gallery">
-                    <div class="card-header is-flex is-justify-content-center is-align-items-center p-2 has-background-dark">
-                        <div class="card-image">
-                            <img class="image image-gallery" src="{{ $image->url }}" alt="{{ $image->title }}">
+        @foreach ($images as $image)
+            <div class="column is-half-mobile is-one-third-tablet is-one-quarter-widescreen">
+                <a href="{{ route('show', $image) }}">
+                    <article class="card card-gallery">
+                        <div class="card-header is-flex is-justify-content-center is-align-items-center p-2 has-background-dark">
+                            <div class="card-image">
+                                <img class="image image-gallery" src="{{ $image->url }}" alt="{{ $image->title }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <h1 class="title is-4 is-flex is-justify-content-space-between">
-                            {{ $image->title }}
-                            <span class="tag is-info">{{ $image->category }}</span>
-                        </h1>
-                        
-                    </div>
-                </article>
-            </a>
-        </div>
-    @endforeach
-    </div>
-
-    <!--
-    @foreach ($images as $image)
-        <article class="box">
-            <div class="columns">
-                <div class="column is-3 is-flex is-align-items-center">
-                    <img class="image image-gallery" src="{{ $image['url'] }}">
-                </div>
-                <div class="column">
-                    <div class="block">
-                        <h1 class="title is-size-4 is-flex is-justify-content-space-between">
-                            {{ $image['title'] }}
-                            <span class="tag is-info">{{ $image['category'] }}</span>
-                        </h2>
-                        <p>{{ $image['description'] }}</p>
-                    </div>
-
-                    <div class="block">
-                        <a href="{{ route('edit', $image) }}" class="button is-link is-small">
-                            <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
-                            <span>Edit</span>
-                        </a>
-                        <a href="{{ route('deleteconfirm', $image) }}" class="button is-danger is-small js-delete">
-                            <span class="icon is-small"><i class="fas fa-trash" aria-hidden="true"></i></span>
-                            <span>Delete</span>
-                        </a>
-                    </div>
-                </div>
+                        <div class="card-content">
+                            <h1 class="title is-4 is-flex is-justify-content-space-between">
+                                {{ $image->title }}
+                                <span class="tag is-info">{{ $image->category }}</span>
+                            </h1>
+                            
+                        </div>
+                    </article>
+                </a>
             </div>
-
-        </article>
-    @endforeach
-    -->
+        @endforeach
+    </div>
 
 @endsection

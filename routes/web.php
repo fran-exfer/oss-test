@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 // Image list and UI forms
 Route::get('/', [ImagesController::class, 'index'])->name('index');
 Route::get('/create', [ImagesController::class, 'create'])->name('create');
+Route::get('/{image}', [ImagesController::class, 'show'])->name('show');
 Route::get('/{image}/edit', [ImagesController::class, 'edit'])->name('edit');
 Route::get('/{image}/delete', [ImagesController::class, 'delete'])->name('deleteconfirm');
 
