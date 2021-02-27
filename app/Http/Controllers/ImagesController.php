@@ -62,6 +62,17 @@ class ImagesController extends Controller
     }
 
     /**
+     * Shows a delete confirmation message.
+     *
+     * @param  \App\Models\Image  $image
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function delete(Image $image)
+    {
+        return view('deleteconfirm', ['image' => $image]);
+    }
+
+    /**
      * Remove an image from the database.
      *
      * @param  \App\Models\Image  $image
@@ -69,7 +80,8 @@ class ImagesController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        $image->delete();
+        return redirect(route('index'))->withSuccess('Image deleted successfully');
     }
 
     /**

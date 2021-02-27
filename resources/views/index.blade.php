@@ -50,13 +50,14 @@
                             <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
                             <span>Edit</span>
                         </a>
-                        <a href="#" class="button is-danger is-small">
+                        <a href="{{ route('deleteconfirm', $image) }}" class="button is-danger is-small js-delete">
                             <span class="icon is-small"><i class="fas fa-trash" aria-hidden="true"></i></span>
                             <span>Delete</span>
                         </a>
                     </div>
                 </div>
             </div>
+
         </article>
     @endforeach
 
