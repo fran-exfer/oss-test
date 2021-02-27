@@ -11,8 +11,13 @@
             </li>
             <li class="is-active">
                 <a href="#">
-                    <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
-                    <span>Create new image</span>
+                    @if (Route::currentRouteName() === 'create')
+                        <span class="icon is-small"><i class="fas fa-plus" aria-hidden="true"></i></span>
+                        <span>Create new image</span>
+                    @else
+                        <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
+                        <span>Edit image</span>
+                    @endif
                 </a>
             </li>
         </ul>
