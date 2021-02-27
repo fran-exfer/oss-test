@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ImagesController::class, 'index'])->name('index');
 Route::get('/create', [ImagesController::class, 'create'])->name('create');
+Route::post('/', [ImagesController::class, 'store'])->name('store');
