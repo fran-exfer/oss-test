@@ -30,6 +30,30 @@
         </a>
     </div>    
 
+    <div class="columns is-mobile is-multiline">
+    @foreach ($images as $image)
+        <div class="column is-half-mobile is-one-third-tablet is-one-quarter-widescreen">
+            <a href="#">
+                <article class="card card-gallery">
+                    <div class="card-header is-flex is-justify-content-center is-align-items-center p-2 has-background-dark">
+                        <div class="card-image">
+                            <img class="image image-gallery" src="{{ $image->url }}" alt="{{ $image->title }}">
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h1 class="title is-4 is-flex is-justify-content-space-between">
+                            {{ $image->title }}
+                            <span class="tag is-info">{{ $image->category }}</span>
+                        </h1>
+                        
+                    </div>
+                </article>
+            </a>
+        </div>
+    @endforeach
+    </div>
+
+    <!--
     @foreach ($images as $image)
         <article class="box">
             <div class="columns">
@@ -60,5 +84,6 @@
 
         </article>
     @endforeach
+    -->
 
 @endsection
