@@ -32,14 +32,32 @@
                         <div class="column is-8 field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" id="title" name="title" placeholder="Image title">
+                                <input
+                                    class="input @error('title') is-danger @enderror"
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder="Image title"
+                                    value="{{ old('title') }}">
+                                @error('title')
+                                    <p class="help is-danger">{{ $errors->first('title') }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="column field">
                             <label class="label">Category</label>
                             <div class="control">
-                                <input class="input" type="text" id="category" name="category" placeholder="Image category">
+                                <input
+                                    class="input @error('category') is-danger @enderror"
+                                    type="text"
+                                    id="category"
+                                    name="category"
+                                    placeholder="Image category"
+                                    value="{{ old('category') }}">
+                                @error('category')
+                                    <p class="help is-danger">{{ $errors->first('category') }}</p>
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -47,14 +65,31 @@
                     <div class="field">
                         <label class="label">Description</label>
                         <div class="control">
-                            <textarea class="textarea" type="text" id="description" name="description" placeholder="Image description"></textarea>
+                            <textarea
+                                class="textarea @error('description') is-danger @enderror"
+                                type="text"
+                                id="description"
+                                name="description"
+                                placeholder="Image description">{{ old('description') }}</textarea>
+                            @error('description')
+                                <p class="help is-danger">{{ $errors->first('description') }}</p>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Image URL</label>
                         <div class="control">
-                            <input class="input" type="text" id="url" name="url" placeholder="Image url">
+                            <input
+                                class="input @error('url') is-danger @enderror"
+                                type="text"
+                                id="url"
+                                name="url"
+                                placeholder="Image url"
+                                value="{{ old('url') }}">
+                            @error('url')
+                                <p class="help is-danger">{{ $errors->first('url') }}</p>
+                            @enderror
                         </div>
                     </div>
 

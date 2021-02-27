@@ -14,7 +14,7 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        return view('index', ['images' => Image::all()]);
+        return view('index', ['images' => Image::all()->sortByDesc('id')]);
     }
 
     /**
@@ -30,12 +30,12 @@ class ImagesController extends Controller
     /**
      * Persist the new image data in the database.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\View\View
      */
     public function store(Request $request)
     {
-        //
+        Image::create($this->validateInputs());
+        return redirect(route('index'));
     }
 
     /**
@@ -70,5 +70,21 @@ class ImagesController extends Controller
     public function destroy(Image $image)
     {
         //
+    }
+
+    /**
+     * Validate create/edit form fields or generate
+     * a redirect response to previous URL with errors
+     * 
+     * @return array
+     */
+    private function validateInputs()
+    {
+        return request()->validate([
+            'title' => 'required|max:20',
+            'category' => 'required|max:20',
+            'description' => 'required',
+            'url' => 'required|URL|max:512',
+        ]);
     }
 }
