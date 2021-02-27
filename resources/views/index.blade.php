@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="block">
-                        <a href="#" class="button is-link is-small">
+                        <a href="{{ route('edit', $image) }}" class="button is-link is-small">
                             <span class="icon is-small"><i class="fas fa-edit" aria-hidden="true"></i></span>
                             <span>Edit</span>
                         </a>

@@ -46,19 +46,19 @@ class ImagesController extends Controller
      */
     public function edit(Image $image)
     {
-        //
+        return view('imageform', ['image' => $image]);
     }
 
     /**
      * Update data from an image into the database.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Contracts\View\View
      */
-    public function update(Request $request, Image $image)
+    public function update(Image $image)
     {
-        //
+        $image->update($this->validateInputs());
+        return redirect(route('index'))->withSuccess('Image data updated successfully');
     }
 
     /**

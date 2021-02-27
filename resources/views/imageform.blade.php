@@ -30,8 +30,11 @@
         <div class="column is-6">
             <article class="box">
         
-                <form action="{{ route('store') }}" method="POST">
+                <form action="{{ Route::currentRouteName() === 'create' ? route('store') : route('update', $image) }}" method="POST">
                     @csrf
+                    @if (Route::currentRouteName() === 'edit')
+                        @method('PUT')
+                    @endif
 
                     <div class="columns">
                         <div class="column is-8 field">
@@ -43,7 +46,8 @@
                                     id="title"
                                     name="title"
                                     placeholder="Image title"
-                                    value="{{ old('title') }}">
+                                    value="{{ old('title') ?? $image->title ?? '' }}"
+                                    >
                                 @error('title')
                                     <p class="help is-danger">{{ $errors->first('title') }}</p>
                                 @enderror
@@ -59,7 +63,7 @@
                                     id="category"
                                     name="category"
                                     placeholder="Image category"
-                                    value="{{ old('category') }}">
+                                    value="{{ old('category') ?? $image->category ?? '' }}">
                                 @error('category')
                                     <p class="help is-danger">{{ $errors->first('category') }}</p>
                                 @enderror
@@ -75,7 +79,7 @@
                                 type="text"
                                 id="description"
                                 name="description"
-                                placeholder="Image description">{{ old('description') }}</textarea>
+                                placeholder="Image description">{{ old('description') ?? $image->description ?? '' }}</textarea>
                             @error('description')
                                 <p class="help is-danger">{{ $errors->first('description') }}</p>
                             @enderror
@@ -91,7 +95,7 @@
                                 id="url"
                                 name="url"
                                 placeholder="Image url"
-                                value="{{ old('url') }}">
+                                value="{{ old('url') ?? $image->url ?? '' }}">
                             @error('url')
                                 <p class="help is-danger">{{ $errors->first('url') }}</p>
                             @enderror
@@ -99,7 +103,9 @@
                     </div>
 
                     <div class="field buttons is-centered p-4">
-                        <button type="submit" class="button is-success">Add new image</button>
+                        <button type="submit" class="button is-success">
+                            {{ Route::currentRouteName() === 'create' ? 'Add new image' : 'Update image' }}
+                        </button>
                     </div>
                 </form>
 
